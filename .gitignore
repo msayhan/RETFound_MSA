@@ -135,3 +135,4 @@ IDRiD_data
 RETFound_mae_natureCFP.pth
 robustretfound_venv
 *.npy
+modelstore/
