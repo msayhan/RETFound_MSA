@@ -1,5 +1,6 @@
 from PIL import Image as PIL_Image
 from torch.utils.data import Dataset
+import numpy as np
 
 class IDRiD_ImageDataset(Dataset):
     def __init__(self, metadata, target_column='Retinopathy grade', 
@@ -23,7 +24,7 @@ class IDRiD_ImageDataset(Dataset):
             if self.transforms:
                 img = self.transforms(img)
         
-        return img, int(self.metadata.iloc[idx][self.target_column])
+        return img, np.int32(self.metadata.iloc[idx][self.target_column])
     
     # def get_labels(self):
     #     # return as series for ImbalancedDatasetSampler to read into a Pandas dataframe
